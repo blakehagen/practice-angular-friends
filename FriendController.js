@@ -2,7 +2,9 @@ var app = angular.module('angularFriends');
 
 app.controller('FriendController', function($scope){
 	
-
+	$scope.searchAttribute = "";
+	
+	$scope.sortOrder = "";
 	
 	
 	
