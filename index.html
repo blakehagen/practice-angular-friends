@@ -15,13 +15,14 @@
     <form class="form-inline searchForm" role="form">
       <div class="form-group">
 
-        <input class="form-control" placeholder="Search Anything About Your Friends">
+
+        <input class="form-control" placeholder="Search Anything About Your Friends" ng-model="searchTerm" >
         <!-- STEP 5: Get rid of the one above when you uncomment the below-->
           <!--
         <input class="form-control" placeholder="Search Name">
         <input class="form-control" placeholder="Search Location">
           -->
-          test
+          
 
         <select class="input-medium">
           <option>Name</option>
@@ -40,21 +41,22 @@
     </form>
 
     <ul>
-      <li class='friend'>
-        <img class="profile-pic" src='http://placebear.com/50/50.jpg'>
+      <li class='friend' ng-repeat="friend in friends | filter: searchTerm">
+        <img class="profile-pic" src="{{friend.pic_square}}">
 
-        <h3>Cali Fornia</h3>
+        <h3>{{friend.name}}</h3>
 
         <div class="location">
-          Location: New Port Beach, California, United States
+          {{friend.current_location.name}}
         </div>
 
         <div class="status">
-          Status: I hate the snow. I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span>
+          {{friend.status.message}}
+          <span class="hashtag"></span>
         </div>
 
         <div class="num-friends">
-          Friends: 1,367
+          Friends: {{friend.friend_count}}
         </div>
       </li>
     </ul>
